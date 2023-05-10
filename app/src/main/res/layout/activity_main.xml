@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="?attr/backgroundcolor">
+
+    <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guidelinetop"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinebot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.89" />
+
+    <ImageButton
+        android:id="@+id/currentlocation"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/getlocationlight"
+        app:layout_constraintLeft_toRightOf="@id/spinner"
+        android:background="@null"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".092"
+        android:layout_marginLeft="15dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="?attr/colorPrimary"
+        android:text="COVID-19 Tracker USA"
+        android:textAlignment="center"
+        android:textColor="?attr/textcolor"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/buttoncolor"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:paddingHorizontal="40dp"
+        app:layout_constraintHorizontal_bias=".35"
+        app:layout_constraintVertical_bias=".1"
+        />
+    <TextView
+        android:id="@+id/stateTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="State" />
+
+    <TextView
+        android:id="@+id/updatetime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorAccent"
+        android:text="Data From JHU | Updates: 3:30-4:00 UTC"
+        android:textAlignment="center"
+        android:textColor="?attr/textcolor"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@id/moredata" />
+
+    <Button
+        android:id="@+id/moredata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="More Details"
+        android:textAlignment="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="?attr/buttoncolor"
+        android:layout_marginRight="15dp"
+        />
+    <Switch
+        android:id="@+id/myswitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/day"
+        android:padding="15dp"
+        />
+    <ImageView
+        android:id="@+id/day"
+        android:layout_width="35dp"
+        android:layout_height="0dp"
+        android:src="@drawable/day"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/updatetime"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="15dp"
+        />
+    <ImageView
+        android:id="@+id/night"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:src="@drawable/night"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/myswitch"
+        app:layout_constraintTop_toBottomOf="@id/updatetime"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="10dp"
+
+        />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/statepie"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/guidelinebot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelinetop" />
+    <TextView
+        android:id="@+id/USAA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/statepie"
+        android:text="USA"
+        android:textColor="?attr/textcolor"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="25dp"
+        />
+    <Toolbar
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="#b22234"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/USAA"
+        app:layout_constraintTop_toTopOf="@id/statepie"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="10dp"
+        />
+    <Toolbar
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="#3C3B6E"
+        app:layout_constraintStart_toEndOf="@id/USAA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/statepie"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="9dp"
+        />
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="?attr/textcolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/updatetime"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
